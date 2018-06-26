@@ -3,59 +3,46 @@
 namespace App\Http\Controllers\Cad;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Cad\PessoaTelefoneRequest;
 use App\Http\Resources\Cad\PessoaTelefoneColletionResource;
+use App\Http\Resources\Cad\PessoaTelefoneResource;
 use App\Models\Cad\Pessoa;
 use App\Models\Cad\PessoaTelefone;
 use Illuminate\Http\Request;
 
 class PessoaTelefoneController extends Controller
 {
-    public function index(Pessoa $pessoa)
+    public function index()
     {
-        //return [$pessoa->pessoatelefones];
-
+        return PessoaTelefoneResource::collection(PessoaTelefone::all());
     }
 
-   public function create()
+    public function store(PessoaTelefoneRequest $request)
     {
-        //
+        $pessoatelefone = PessoaTelefone::create($request->all());
+        $pessoatelefone->refresh(); // devido ao default active para atualizar quando não e passado
+
+        return new PessoaTelefoneResource($pessoatelefone);
     }
 
-    public function store(Request $request)
+    public function show(PessoaTelefone $pessoatelefone)
     {
-        //
+        return new PessoaTelefoneResource($pessoatelefone);
     }
 
-    public function show(PessoaTelefone $pessoaTelefone)
+    public function update(PessoaTelefoneRequest $request, PessoaTelefone $pessoatelefone)
     {
-        //
+        $pessoatelefone->fill($request->all());
+        $pessoatelefone->save();
+
+        return new PessoaTelefoneResource($pessoatelefone);
     }
 
-    public function edit(PessoaTelefone $pessoaTelefone)
+    public function destroy(PessoaTelefone $pessoatelefone)
     {
-        //
+        $pessoatelefone->delete();
+
+        return response()->json([], 204);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cad\PessoaTelefone  $pessoaTelefone
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, PessoaTelefone $pessoaTelefone)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Cad\PessoaTelefone  $pessoaTelefone
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PessoaTelefone $pessoaTelefone)
-    {
-        //
-    }
 }
