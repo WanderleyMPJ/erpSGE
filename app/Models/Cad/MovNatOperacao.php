@@ -18,9 +18,4 @@ class MovNatOperacao extends Model
         }
         $this->attributes['tipo'] = mb_strtoupper($value);
     }
-
-    public function mov()
-    {
-        return $this->hasMany(Mov::class);
-    }
 }

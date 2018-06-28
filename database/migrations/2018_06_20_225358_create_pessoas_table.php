@@ -27,6 +27,7 @@ class CreatePessoasTable extends Migration
     {
         Schema::dropIfExists('pessoa_pessoa_grupo');
         Schema::dropIfExists('pessoa_doctos');
+        Schema::dropIfExists('movs');
         Schema::dropIfExists('pessoas');
     }
 }

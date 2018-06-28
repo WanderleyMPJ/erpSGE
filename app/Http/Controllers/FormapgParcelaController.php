@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mov\Mov;
+use App\Models\Cad\FormapgParcela;
 use Illuminate\Http\Request;
 
-class MovController extends Controller
+class FormapgParcelaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class MovController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Mov\Mov  $mov
+     * @param  \App\Models\Cad\FormapgParcela  $formapgParcela
      * @return \Illuminate\Http\Response
      */
-    public function show(Mov $mov)
+    public function show(FormapgParcela $formapgParcela)
     {
         //
     }
@@ -52,10 +52,10 @@ class MovController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Mov\Mov  $mov
+     * @param  \App\Models\Cad\FormapgParcela  $formapgParcela
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mov $mov)
+    public function edit(FormapgParcela $formapgParcela)
     {
         //
     }
@@ -64,10 +64,10 @@ class MovController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Mov\Mov  $mov
+     * @param  \App\Models\Cad\FormapgParcela  $formapgParcela
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mov $mov)
+    public function update(Request $request, FormapgParcela $formapgParcela)
     {
         //
     }
@@ -75,10 +75,10 @@ class MovController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Mov\Mov  $mov
+     * @param  \App\Models\Cad\FormapgParcela  $formapgParcela
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mov $mov)
+    public function destroy(FormapgParcela $formapgParcela)
     {
         //
     }

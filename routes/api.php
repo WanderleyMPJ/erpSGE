@@ -32,7 +32,10 @@ Route::group(['namespace' => 'Cad', 'as' => 'cad.' ], function (){
 
 //    **** MOV ***
     Route::resource('natoperacao', 'MovNatOperacaoController', ['except' => ['create', 'edit']]);
-    Route::resource('mov', 'MovController', ['except' => ['create', 'edit']]);
+
 
 });
 
+Route::group(['namespace' => 'Mov', 'as' => 'mov.' ], function (){
+    Route::resource('mov', 'MovController', ['except' => ['create', 'edit']]);
+});

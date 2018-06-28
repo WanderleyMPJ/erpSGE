@@ -19,5 +19,8 @@ class DatabaseSeeder extends Seeder
          $this->call(ProdutoGrupoTableSeeder::class);
          $this->call(ProdutoTableSeeder::class);
          $this->call(MovNatOperacaoTableSeeder::class);
+
+      // *****mov
+         $this->call(MovTableSeeder::class);
     }
 }

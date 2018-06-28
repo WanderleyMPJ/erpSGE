@@ -4,13 +4,16 @@ use Illuminate\Database\Seeder;
 
 class MovTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
+        $pessoas = \App\Models\Cad\Pessoa::all();
+        factory(\App\Models\Mov\Mov::class, 10)
+            ->make()
+            ->each(function ($input) use ($pessoas)
+            {
+                $input->pessoa_id = $pessoas->random()->id;
+                $input->save();
+                }
+            );
     }
 }
