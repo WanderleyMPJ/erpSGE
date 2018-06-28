@@ -8,6 +8,6 @@ $factory->define(PessoaDocto::class, function (Faker $faker) {
         'numero' => $faker->randomFloat(14),
         'dataemissao'=>$faker->dateTimeInInterval(),
         'dataemissao'=>$faker->dateTimeInInterval(),
-        'orgaoemissor'=>$faker->jobTitle
+        'orgaoemissor'=>$faker->colorName
     ];
 });

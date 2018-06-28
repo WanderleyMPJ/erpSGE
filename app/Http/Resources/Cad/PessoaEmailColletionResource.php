@@ -5,8 +5,7 @@ namespace App\Http\Resources\Cad;
 use App\Models\Cad\Pessoa;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-
-class PessoaDoctoCollectionResource extends ResourceCollection
+class PessoaEmailColletionResource extends ResourceCollection
 {
     private $pessoa;
 
@@ -20,8 +19,8 @@ class PessoaDoctoCollectionResource extends ResourceCollection
     {
         return [
             'pessoa' => new PessoaResource($this->pessoa),
-            'doctos' => $this->collection->map(function ($docto){
-                return new PessoaDoctoResource($docto, true);
+            'emails' => $this->collection->map(function ($email){
+                return new PessoaEmailResource($email, true);
             })
         ];
     }

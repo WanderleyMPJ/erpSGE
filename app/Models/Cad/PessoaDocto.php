@@ -3,7 +3,6 @@
 namespace App\Models\Cad;
 
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class PessoaDocto extends Model

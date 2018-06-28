@@ -28,29 +28,29 @@ class PessoaPessoaTelefoneController extends Controller
         return response()->json(new PessoaTelefoneResource($input), 201 );
     }
 
-    public function show(Pessoa $pessoa, PessoaTelefone $pessoatelefone)
+    public function show(Pessoa $pessoa, PessoaTelefone $telefone)
     {
-        $this->assertPessoaTelefone($pessoa, $pessoatelefone);
-        return new PessoaTelefoneResource($pessoatelefone);
+        $this->assertPessoaTelefone($pessoa, $telefone);
+        return new PessoaTelefoneResource($telefone);
     }
 
-    public function update(Request $request, Pessoa $pessoa, PessoaTelefone $pessoatelefone)
+    public function update(Request $request, Pessoa $pessoa, PessoaTelefone $telefone)
     {
-        $this->assertPessoaTelefone($pessoa, $pessoatelefone);
-        $pessoatelefone->fill($request->all());
-        $pessoatelefone->save();
-        return new PessoaTelefoneResource($pessoatelefone);
+        $this->assertPessoaTelefone($pessoa, $telefone);
+        $telefone->fill($request->all());
+        $telefone->save();
+        return new PessoaTelefoneResource($telefone);
     }
 
-    public function destroy(Pessoa $pessoa, PessoaTelefone $pessoatelefone)
+    public function destroy(Pessoa $pessoa, PessoaTelefone $telefone)
     {
-        $this->assertPessoaTelefone($pessoa, $pessoatelefone);
-        $pessoatelefone->delete();
+        $this->assertPessoaTelefone($pessoa, $telefone);
+        $telefone->delete();
         return response()->json([], 204);
     }
 
-    private function assertPessoaTelefone(Pessoa $pessoa, PessoaTelefone $pessoatelefone){
-        if($pessoatelefone->pessoa_id != $pessoa->id){
+    private function assertPessoaTelefone(Pessoa $pessoa, PessoaTelefone $telefone){
+        if($telefone->pessoa_id != $pessoa->id){
             abort(404);
         }
     }

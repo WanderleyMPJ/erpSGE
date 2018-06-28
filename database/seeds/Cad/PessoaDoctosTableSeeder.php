@@ -16,9 +16,6 @@ class PessoaDoctosTableSeeder extends Seeder
                 factory(PessoaDocto::class, 1)
                     ->make()
                     ->each(function ($input) use ($pessoa, $i) {
-
-                        // $pessoa = $pessoas->random();
-                     //   $tipo = $DoctoTipo->random();
                         $input->pessoa_id = $pessoa->id;
                         $input->pessoa_docto_tipo_id = $i;
                         $input->save();

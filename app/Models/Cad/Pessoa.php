@@ -12,6 +12,11 @@ class Pessoa extends Model
     protected $dates = ['deleted_at'];
     protected $fillable = ['nome', 'ativo', 'fantasia', 'user_id', 'tipo'];
 
+    public function empresa()
+    {
+        return $this->hasMany(Empresa::class);
+    }
+
     public function pessoagrupos()
     {
         return $this->belongsToMany(PessoaGrupo::class);
@@ -26,4 +31,15 @@ class Pessoa extends Model
     {
         return $this->hasMany(PessoaTelefone::class);
     }
+
+    public function pessoaemails()
+    {
+        return $this->hasMany(PessoaEmail::class);
+    }
+
+    public function pessoadependentes()
+    {
+        return $this->hasMany(PessoaDependente::class);
+    }
+
 }

@@ -11,7 +11,7 @@ use App\MOdels\Cad\PessoaDocto;
 
 use Illuminate\Http\Request;
 
-class PessoaDoctoController extends Controller
+class PessoaPessoaDoctoController extends Controller
 {
     public function index(Pessoa $pessoa)
     {
@@ -31,29 +31,29 @@ class PessoaDoctoController extends Controller
         return response()->json(new PessoaDoctoResource($input), 201 );
     }
 
-    public function show(Pessoa $pessoa, PessoaDocto $pessoadocto)
+    public function show(Pessoa $pessoa, PessoaDocto $docto)
     {
-        $this->assertPessoaDocto($pessoa, $pessoadocto);
-        return new PessoaDoctoResource($pessoadocto);
+        $this->assertPessoaDocto($pessoa, $docto);
+        return new PessoaDoctoResource($docto);
     }
 
-    public function update(Request $request, Pessoa $pessoa, PessoaDocto $pessoadocto)
+    public function update(Request $request, Pessoa $pessoa, PessoaDocto $docto)
     {
-        $this->assertPessoaDocto($pessoa, $pessoadocto);
-        $pessoadocto->fill($request->all());
-        $pessoadocto->save();
-        return new PessoaDoctoResource($pessoadocto);
+        $this->assertPessoaDocto($pessoa, $docto);
+        $docto->fill($request->all());
+        $docto->save();
+        return new PessoaDoctoResource($docto);
     }
 
-    public function destroy(Pessoa $pessoa, PessoaDocto $pessoadocto)
+    public function destroy(Pessoa $pessoa, PessoaDocto $docto)
     {
-        $this->assertPessoaDocto($pessoa, $pessoadocto);
-        $pessoadocto->delete();
+        $this->assertPessoaDocto($pessoa, $docto);
+        $docto->delete();
         return response()->json([], 204);
     }
 
-    private function assertPessoaDocto(Pessoa $pessoa, PessoaDocto $pessoadocto){
-        if($pessoadocto->pessoa_id != $pessoa->id){
+    private function assertPessoaDocto(Pessoa $pessoa, PessoaDocto $docto){
+        if($docto->pessoa_id != $pessoa->id){
             abort(404);
         }
     }
