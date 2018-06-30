@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
          $this->call(PessoaDoctosTableSeeder::class);
          $this->call(PessoaTelefoneTableSeeder::class);
          $this->call(PessoaEmailTableSeeder::class);
+         $this->call(PessoaEnderecoTableSeeder::class);
          $this->call(PessoaDependenteTipoTableSeeder::class);
          $this->call(PessoaDependenteTableSeeder::class);
          $this->call(EmpresaTableSeeder::class);

@@ -8,7 +8,7 @@ class PessoaEmail extends Model
 {
     protected $fillable = ['descricao', 'pessoa_id', 'email'];
 
-    public function pessoas()
+    public function pessoa()
     {
         return $this->belongsToMany(Pessoa::class);
     }

@@ -37,6 +37,11 @@ class Pessoa extends Model
         return $this->hasMany(PessoaEmail::class);
     }
 
+    public function pessoaenderecos()
+    {
+        return $this->hasMany(PessoaEndereco::class);
+    }
+
     public function pessoadependentes()
     {
         return $this->hasMany(PessoaDependente::class);
