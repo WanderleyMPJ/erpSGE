@@ -15,12 +15,15 @@ class DatabaseSeeder extends Seeder
          $this->call(PessoaEmailTableSeeder::class);
          $this->call(PessoaDependenteTipoTableSeeder::class);
          $this->call(PessoaDependenteTableSeeder::class);
-        $this->call(EmpresaTableSeeder::class);
+         $this->call(EmpresaTableSeeder::class);
          $this->call(ProdutoGrupoTableSeeder::class);
          $this->call(ProdutoTableSeeder::class);
          $this->call(MovNatOperacaoTableSeeder::class);
 
       // *****mov
          $this->call(MovTableSeeder::class);
+         $this->call(FormapgTipoTableSeeder::class);
+         $this->call(FormapgTableSeeder::class);
+         $this->call(FormapgParcelasTableSeeder::class);
     }
 }

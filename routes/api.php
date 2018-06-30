@@ -14,6 +14,7 @@ Route::group(['namespace' => 'Cad', 'as' => 'cad.' ], function (){
 //    **** PESSOAS ***
     Route::resource('pessoadependentetipos', 'PessoaDependenteTipoController', ['except' => ['create', 'edit']]);
     Route::resource('pessoaemails', 'PessoaEmailController', ['except' => ['create', 'edit']]);
+    Route::resource('pessoaenderecos', 'PessoaEnderecoController', ['except' => ['create', 'edit']]);
     Route::resource('pessoagrupos', 'PessoaGrupoController', ['except' => ['create', 'edit']]);
     Route::resource('pessoatelefones', 'PessoaTelefoneController', ['except' => ['create', 'edit']]);
     Route::resource('pessoadoctotipos', 'PessoaDoctoTipoController', ['except' => ['create', 'edit']]);
@@ -22,6 +23,7 @@ Route::group(['namespace' => 'Cad', 'as' => 'cad.' ], function (){
     Route::resource('pessoas.doctos', 'PessoaPessoaDoctoController', ['except' => ['create', 'edit']]);
     Route::resource('pessoas.telefones', 'PessoaPessoaTelefoneController', ['except' => ['create', 'edit']]);
     Route::resource('pessoas.emails', 'PessoaPessoaEmailController', ['except' => ['create', 'edit']]);
+    Route::resource('pessoas.enderecos', 'PessoaPessoaEnderecoController', ['except' => ['create', 'edit']]);
     Route::resource('pessoas.dependentes', 'PessoaPessoaDependenteController', ['except' => ['create', 'edit']]);
     Route::patch('pessoas/{pessoa}/restore','PessoaController@restore');
 
@@ -32,10 +34,14 @@ Route::group(['namespace' => 'Cad', 'as' => 'cad.' ], function (){
 
 //    **** MOV ***
     Route::resource('natoperacao', 'MovNatOperacaoController', ['except' => ['create', 'edit']]);
-
+    Route::resource('formapgtipos', 'FormapgTipoController', ['except' => ['create', 'edit']]);
+    Route::resource('formapgparcelas', 'FormapgParcelaController', ['except' => ['create', 'edit']]);
+    Route::resource('formapgs.parcelas', 'FormapgFormapgParcelaController', ['except' => ['create', 'edit']]);
+    Route::resource('formapgs', 'FormapgController', ['except' => ['create', 'edit']]);
 
 });
 
+//   ***** Grupo mov
 Route::group(['namespace' => 'Mov', 'as' => 'mov.' ], function (){
     Route::resource('mov', 'MovController', ['except' => ['create', 'edit']]);
 });

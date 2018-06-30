@@ -4,23 +4,25 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFormapgsTable extends Migration
+class CreatePlanoContasTable extends Migration
 {
     public function up()
     {
-        Schema::create('formapgs', function (Blueprint $table) {
+        Schema::create('plano_contas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('codconta');
             $table->string('nome');
+            $table->integer('parent_id')->unsigned();
             $table->boolean('ativo')->default(1);
-            $table->integer('formapg_tipo_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('formapg_tipo_id')->references('id')->on('formapg_tipos');
+            $table->foreign('parent_id')->references('id')->on('plano_contas');
+            $table->index('nome');
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('formapgs');
+        Schema::dropIfExists('plano_contas');
     }
 }
