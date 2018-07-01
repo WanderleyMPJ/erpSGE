@@ -27,6 +27,9 @@ Route::group(['namespace' => 'Cad', 'as' => 'cad.' ], function (){
     Route::resource('pessoas.dependentes', 'PessoaPessoaDependenteController', ['except' => ['create', 'edit']]);
     Route::patch('pessoas/{pessoa}/restore','PessoaController@restore');
 
+// *** outros
+    Route::resource('planocontas', 'PlanocontaController', ['except' => ['create', 'edit']]);
+
 //  *** PRODUTOS ****
     Route::resource('produtogrupos', 'ProdutoGrupoController', ['except' => ['create', 'edit']]);
     Route::resource('produtos', 'ProdutoController', ['except' => ['create', 'edit']]);

@@ -8,21 +8,22 @@ class CreatePlanoContasTable extends Migration
 {
     public function up()
     {
-        Schema::create('plano_contas', function (Blueprint $table) {
+        Schema::create('planocontas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('codconta');
+            $table->string('codigo');
             $table->string('nome');
-            $table->integer('parent_id')->unsigned();
+            $table->integer('parent_id')->unsigned()->nullable();
             $table->boolean('ativo')->default(1);
             $table->timestamps();
 
-            $table->foreign('parent_id')->references('id')->on('plano_contas');
+            $table->foreign('parent_id')->references('id')->on('planocontas')->onDelete('cascade');
+            $table->index('codigo');
             $table->index('nome');
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('plano_contas');
+        Schema::dropIfExists('planocontas');
     }
 }
