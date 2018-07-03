@@ -12,7 +12,7 @@ class MovResource extends JsonResource
     {
         $data = [
             'id' => $this->id,
-            'data' => $this->data->format('d-m-Y'),
+            'data' => $this->data->format('d/m/Y'),
             'documento' => $this->documento,
             'valorbruto' => (float)$this->valorbruto,
             'desconto' => (float)$this->desconto,
@@ -21,6 +21,7 @@ class MovResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'pessoa' => new PessoaResource($this->pessoa),
+            'formapg' => new PessoaResource($this->formapg),
             'movnatoperacao' => new MovNatOperacaoResource($this->movnatoperacao)
         ];
 

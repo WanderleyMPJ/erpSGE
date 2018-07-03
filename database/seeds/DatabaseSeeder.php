@@ -21,11 +21,16 @@ class DatabaseSeeder extends Seeder
          $this->call(ProdutoGrupoTableSeeder::class);
          $this->call(ProdutoTableSeeder::class);
          $this->call(MovNatOperacaoTableSeeder::class);
-
-      // *****mov
-         $this->call(MovTableSeeder::class);
+         $this->call(CcTipoTableSeeder::class);                          //MANTER
+         $this->call(CcTableSeeder::class);
+         $this->call(CcBancoTableSeeder::class);
+         $this->call(CcBancoCobrancaTableSeeder::class);
          $this->call(FormapgTipoTableSeeder::class);
          $this->call(FormapgTableSeeder::class);
          $this->call(FormapgParcelasTableSeeder::class);
+
+         // *****mov
+         $this->call(MovTableSeeder::class);
+
     }
 }

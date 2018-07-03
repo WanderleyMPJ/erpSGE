@@ -13,14 +13,17 @@ class CreateFormapgsTable extends Migration
             $table->string('nome');
             $table->boolean('ativo')->default(1);
             $table->integer('formapg_tipo_id')->unsigned();
+            $table->integer('cc_banco_cobranca_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('formapg_tipo_id')->references('id')->on('formapg_tipos');
+            $table->foreign('cc_banco_cobranca_id')->references('id')->on('cc_banco_cobrancas')->onDelete('cascade');
         });
     }
 
     public function down()
     {
+        Schema::dropIfExists('formapg_parcelas');
         Schema::dropIfExists('formapgs');
     }
 }

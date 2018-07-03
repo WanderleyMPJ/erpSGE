@@ -29,6 +29,10 @@ Route::group(['namespace' => 'Cad', 'as' => 'cad.' ], function (){
 
 // *** outros
     Route::resource('planocontas', 'PlanocontaController', ['except' => ['create', 'edit']]);
+    Route::resource('cctipos', 'CcTipoController', ['except' => ['create', 'edit']]);
+    Route::resource('ccs', 'CcController', ['except' => ['create', 'edit']]);
+    Route::resource('ccbancos', 'CcBancoController', ['except' => ['create', 'edit']]);
+    Route::resource('ccbancocobrancas', 'CcBancoCobrancaController', ['except' => ['create', 'edit']]);
 
 //  *** PRODUTOS ****
     Route::resource('produtogrupos', 'ProdutoGrupoController', ['except' => ['create', 'edit']]);
@@ -46,5 +50,5 @@ Route::group(['namespace' => 'Cad', 'as' => 'cad.' ], function (){
 
 //   ***** Grupo mov
 Route::group(['namespace' => 'Mov', 'as' => 'mov.' ], function (){
-    Route::resource('mov', 'MovController', ['except' => ['create', 'edit']]);
+    Route::resource('movs', 'MovController', ['except' => ['create', 'edit']]);
 });
