@@ -18,5 +18,10 @@
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "admin-lte-css": "^2.4.3",
+        "app-angular": "file:app-angular",
+        "bootstrap-css-only": "^4.1.1"
     }
 }

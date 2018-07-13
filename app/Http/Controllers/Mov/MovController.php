@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Mov\MovRequest;
 use App\Http\Resources\Mov\MovResource;
 use App\Models\Mov\Mov;
+use Carbon\Carbon;
 
 class MovController extends Controller
 {
@@ -30,6 +31,8 @@ class MovController extends Controller
     public function update(MovRequest $request, Mov $mov)
     {
         $mov->fill($request->all());
+
+        $mov->data = $mov->data->format('d/m/Y');
         $mov->save();
 
         return new MovResource($mov);

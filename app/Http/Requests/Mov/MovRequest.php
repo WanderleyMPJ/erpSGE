@@ -14,8 +14,7 @@ class MovRequest extends FormRequest
     public function rules()
     {
         return [
-          //  'data' => 'date|required',
-            'data' => 'required|date_format:"d/m/Y"',
+            'data' => 'required|date_format:d/m/Y',
             'pessoa_id' => 'required|exists:pessoas,id',
             'mov_nat_operacao_id' => 'required|exists:mov_nat_operacaos,id',
             'mov_nat_operacao_id' => 'exists:formapgs,id'
