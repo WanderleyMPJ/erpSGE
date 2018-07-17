@@ -6,7 +6,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+         $this->call(UsersTableSeeder::class);
          $this->call(PlanocontaTableSeeder::class);
          $this->call(PessoaGruposTableSeeder::class);
          $this->call(PessoaTableSeeder::class);
@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
          $this->call(FormapgParcelasTableSeeder::class);
 
          // *****mov
-         $this->call(MovTableSeeder::class);
+//         $this->call(MovTableSeeder::class);
 
     }
 }

@@ -17,7 +17,8 @@ class Mov extends Model
 
     public function setDataAttribute($value)
     {
-        $this->attributes['data'] = Carbon::createFromFormat('d/m/Y', $value);
+        if($this->attributes['data'])
+            $this->attributes['data'] = Carbon::createFromFormat('d/m/Y', $value);
     }
 
     public function MovNatOperacao()

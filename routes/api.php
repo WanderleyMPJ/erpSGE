@@ -6,7 +6,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['namespace' => 'Api', 'as' => 'api.'], function(){
+    Route::name('login')->post('login', 'AuthController@login');
+});
+
 Route::group(['namespace' => 'Cad', 'as' => 'cad.' ], function (){
+
+
+    Route::group(['middleware' => 'auth:api'], function(){
+        Route::resource('users', 'UserController', ['except' => ['create', 'edit']]);
 
 //    **** EMPESA ***
     Route::resource('empresas', 'EmpresaController', ['except' => ['create', 'edit']]);
@@ -45,10 +53,12 @@ Route::group(['namespace' => 'Cad', 'as' => 'cad.' ], function (){
     Route::resource('formapgparcelas', 'FormapgParcelaController', ['except' => ['create', 'edit']]);
     Route::resource('formapgs.parcelas', 'FormapgFormapgParcelaController', ['except' => ['create', 'edit']]);
     Route::resource('formapgs', 'FormapgController', ['except' => ['create', 'edit']]);
+//   ***** Grupo mov
+     Route::group(['namespace' => 'Mov', 'as' => 'mov.' ], function (){
+         Route::resource('movs', 'MovController', ['except' => ['create', 'edit']]);
+ });
 
 });
 
-//   ***** Grupo mov
-Route::group(['namespace' => 'Mov', 'as' => 'mov.' ], function (){
-    Route::resource('movs', 'MovController', ['except' => ['create', 'edit']]);
+
 });

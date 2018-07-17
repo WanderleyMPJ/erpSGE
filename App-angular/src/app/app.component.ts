@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import pace from 'pace';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'SGE - Sistema de Gestão Empresarial';
+
+    ngOnInit(): void{
+        pace.start({
+            document: false
+        })
+    }
 }
